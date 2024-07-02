@@ -17,7 +17,7 @@ $data =$koneksi->show();
         <!-- Navbar start -->
     <nav class="navbar bg-body-tertiary">
   <div class="container-fluid bg-primary">
-    <a class="navbar-brand text-white p-3" href="#">
+    <a class="navbar-brand text-white p-3" href="index.php">
      <h3>Sistem Penggajian Karyawan PT .Eka Maju</h3>
     </a>
   </div>
