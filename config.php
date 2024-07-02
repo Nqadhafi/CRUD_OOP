@@ -5,9 +5,22 @@ interface haikal{
 
 //koneksi database
 class connection{
+
+    protected $db;
     public function __construct()
     {
-        
+    
+        $host = 'localhost';
+        $dbname = 'kelompok_gaji';
+        $user = 'root';
+        $pwd = '';
+        $this->db = new PDO("mysql:host={$host};dbname={$dbname}", $user, $pwd);
+    }
+    public function show(){
+        $query = $this->db->prepare("SELECT * FROM data_gaji");
+        $query->execute();
+        $data = $query->fetchAll();
+        return $data;
     }
 }
 

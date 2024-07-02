@@ -1,5 +1,7 @@
 <?php
 include ('config.php');
+$koneksi = new connection();
+$data =$koneksi->show();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,21 +66,29 @@ include ('config.php');
         <td class="fw-bold bg-warning p-2">Take Home Pay</td>
         <td class="fw-bold bg-warning p-2"> Edit/ Hapus</td>
     </thead>
-    <tr>
-    <td class="fw-bold p-2">1</td>
-        <td class=" p-2">2212222</td>
-        <td class=" p-2">Kevin Susanto</td>
-        <td class=" p-2">Operator</td>
-        <td class=" p-2">08123456789</td>
-        <td class=" p-2">Rp. 500000</td>
-        <td class=" p-2">-</td>
-        <td class=" p-2">Rp.10000</td>
-        <td class=" p-2">Rp.400000</td>
-        <td class=" p-2"> 
-            <a href="?page=edit" class="btn py-1 px-3 btn-success">Edit</a>
-            <a href="?page=hapus" class="btn py-1 px-2 btn-danger">Hapus</a>
-        </td>
-    </tr>
+    
+      <?php
+      $nomor = 1;
+    foreach ($data as $data){
+      echo "<tr>";
+      echo "<td class=' p-2'>". $nomor ."</td>";
+      echo "<td class=' p-2'>". $data['nomorinduk_karyawan'] ."</td>";
+     echo  "<td class=' p-2'>". $data['nama_karyawan'] ."</td>";
+     echo " <td class=' p-2'>". $data['jabatan_karyawan'] ."</td>";
+     echo  "<td class=' p-2'>". $data ['nomorhp_karyawan'] ."</td>";
+      echo "<td class=' p-2'>Rp.". $data['gajipokok_karyawan'] ."</td>";
+     echo  "<td class=' p-2'>". $data['bonus_karyawan'] ."</td>";
+      echo "<td class=' p-2'>Rp.".$potongan = $data['absen_karyawan'] * 20000 ."</td>";
+     echo " <td class=' p-2'>Rp.". (int) $data['gajipokok_karyawan']- (int)$potongan + (int)$data['bonus_karyawan']."</td>";
+      echo "<td class=' p-2'> ";
+          echo "<a href='?page=edit&nomorinduk=".$data['nomorinduk_karyawan']."'class='btn py-1 px-3 btn-success'>Edit</a>";
+         echo  "<a href='?hapus=".$data['nomorinduk_karyawan']."' class='btn py-1 px-2 btn-danger'>Hapus</a>";
+      echo "</td>";
+      echo "</tr>";
+      $nomor++;
+    }
+      ?>
+   
      </table>
      </div>
      </div>

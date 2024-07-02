@@ -18,7 +18,7 @@
     <div class="my-3 col-md-6">
         <div class="d-flex flex-column w-75">
     <label for="462_nomorinduk"><h6>Nomor Induk Karyawan :</h6></label>
-    <input type="number" class="form-control p-1 m-1" name="462_nomorinduk" id="">
+    <input type="number" class="form-control p-1 m-1" name="462_nomorinduk" id="" aria-disabled="Disabled" disabled>
     </div>
     </div>
 <!-- Nama Karyawan -->
@@ -35,7 +35,7 @@
     <label for="462_Jabatan" class="form-label p-1">
         <h6>Jabatan :</h6>
     </label>
-    <select  class="form-select p-1 m-1" name="462_Jabatan">
+    <select  class="form-select p-1 m-1" name="462_Jabatan" aria-disabled="Disabled" disabled>
       <option value="Training">Training</option>
       <option value="Operator">Operator</option>
       <option value="Supervisor">Supervisor</option>
@@ -53,7 +53,7 @@
     <div class="my-3 col-md-6">
         <div class="d-flex flex-column w-75">
     <label for="462_gajipokok"><h6>Gaji Pokok (Rp.) :</h6></label>
-    <input type="number" class="form-control p-1 m-1" name="462_gajipokok" id="">
+    <input type="number" class="form-control p-1 m-1" name="462_gajipokok" id="" aria-disabled="Disabled" disabled>
     </div>
     </div>
     <!-- Bonus -->

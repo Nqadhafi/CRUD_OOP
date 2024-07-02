@@ -53,7 +53,7 @@
     <div class="my-3 col-md-6">
         <div class="d-flex flex-column w-75">
     <label for="462_gajipokok"><h6>Gaji Pokok (Rp.) :</h6></label>
-    <input type="number" class="form-control p-1 m-1" name="462_gajipokok" id="">
+    <input type="number" class="form-control p-1 m-1" name="462_gajipokok" id="" aria-disabled="Disabled" disabled>
     </div>
     </div>
     <!-- Bonus -->
