@@ -1,3 +1,6 @@
+<?php
+include ('config.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,8 +45,12 @@
             </div>
             
      <table class="table table-striped table-bordered">
-     <a href="" class="btn py-1 px-3 m-3 btn-success" style="width:10rem;">+ Tambah Data</a>
-    <thead>
+     <a href="?page=tambah" class="btn py-1 px-3 m-3 btn-success" style="width:10rem;">+ Tambah Data</a>
+        <?php
+        $page = new page();
+        $page->proses();
+        ?>
+     <thead>
         <td class="fw-bold bg-warning p-2">No.</td>
         <td class="fw-bold bg-warning p-2">NIP</td>
         <td class="fw-bold bg-warning p-2">Nama Pegawai</td>
@@ -66,8 +73,8 @@
         <td class=" p-2">Rp.10000</td>
         <td class=" p-2">Rp.400000</td>
         <td class=" p-2"> 
-            <a href="" class="btn py-1 px-3 btn-success">Edit</a>
-            <a href="" class="btn py-1 px-2 btn-danger">Hapus</a>
+            <a href="?page=edit" class="btn py-1 px-3 btn-success">Edit</a>
+            <a href="?page=hapus" class="btn py-1 px-2 btn-danger">Hapus</a>
         </td>
     </tr>
      </table>

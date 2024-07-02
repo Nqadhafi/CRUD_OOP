@@ -1,10 +1,6 @@
 <?php
 interface haikal{
-    public function page();
-    public function tambah();
-    public function edit();
-    public function hapus();
-
+    public function proses();
 }
 
 //koneksi database
@@ -16,10 +12,7 @@ class conecntion{
 }
 
 class page implements haikal{
-    public function tambah(){}
-    public function edit(){}
-    public function hapus(){}
-    public function page(){
+    public function proses(){
         $page ="";
         if(isset($_GET['page'])){
             $page = $_GET['page'];
@@ -37,28 +30,19 @@ class page implements haikal{
     }
 
     class tambah implements haikal{
-    public function edit(){}
-    public function hapus(){}
-    public function page(){}
-    public function tambah(){
+    public function proses(){
         // ... logika tambah
     }
     }
 
     class edit implements haikal{
-        public function hapus(){}
-        public function page(){}
-        public function tambah(){}
-        public function edit(){
+        public function proses(){
             // ...logika edit
         }
     }
 
     class hapus implements haikal{
-        public function page(){}
-        public function tambah(){}
-        public function edit(){}
-        public function hapus(){
+        public function proses(){
             //  ... logika hapus
         }
     }
