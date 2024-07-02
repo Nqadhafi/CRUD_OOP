@@ -13,8 +13,8 @@ include ('config.php');
 <body>
     <div class="container-fluid">
         <!-- Navbar start -->
-    <nav class="navbar bg-body-tertiary ">
-  <div class="container-fluid bg-primary ">
+    <nav class="navbar bg-body-tertiary">
+  <div class="container-fluid bg-primary">
     <a class="navbar-brand text-white p-3" href="#">
      <h3>Sistem Penggajian Karyawan PT .Eka Maju</h3>
     </a>
@@ -43,13 +43,15 @@ include ('config.php');
             <div class="card-header p-3">
                 <h2 class="fw-bold text-dark">Data Gaji Karyawan Bulan Juli</h2>
             </div>
-            
+      <div class="m-2">
      <table class="table table-striped table-bordered">
      <a href="?page=tambah" class="btn py-1 px-3 m-3 btn-success" style="width:10rem;">+ Tambah Data</a>
-        <?php
+ <div class="d-flex justify-content-center mx-auto">
+       <?php
         $page = new page();
         $page->proses();
         ?>
+    </div>
      <thead>
         <td class="fw-bold bg-warning p-2">No.</td>
         <td class="fw-bold bg-warning p-2">NIP</td>
@@ -78,6 +80,7 @@ include ('config.php');
         </td>
     </tr>
      </table>
+     </div>
      </div>
      </div>
     </div>

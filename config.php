@@ -4,7 +4,7 @@ interface haikal{
 }
 
 //koneksi database
-class conecntion{
+class connection{
     public function __construct()
     {
         
