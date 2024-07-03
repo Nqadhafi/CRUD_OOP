@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2024 at 08:49 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- Generation Time: Jul 03, 2024 at 09:38 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,8 +43,8 @@ CREATE TABLE `data_gaji` (
 --
 
 INSERT INTO `data_gaji` (`nomorinduk_karyawan`, `nama_karyawan`, `jabatan_karyawan`, `nomorhp_karyawan`, `gajipokok_karyawan`, `bonus_karyawan`, `absen_karyawan`, `takehome_karyawan`) VALUES
-(211, 'Fikhi', 'Operator', 811223344, 2000000, NULL, 1, 2000000),
-(221, 'Asep', 'Supervisor', 833992211, 10000000, 300000, 3, 10240000);
+(123, 'Hilmi mantab', 'Training', 2147483647, 1500000, 0, 0, 1500000),
+(433, 'Firman', 'Operator', 2147483647, 2000000, 0, 2, 1960000);
 
 --
 -- Indexes for dumped tables
