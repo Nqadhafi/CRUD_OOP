@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <script>
+        // Fungsi untuk memberi value otomatis kepada input gaji pokok
         function nilaiGajiPokok() {
             var jabatan = document.getElementById("462_Jabatan").value;
             var gajiPokokInput = document.getElementById("462_gajipokok");
