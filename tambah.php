@@ -1,3 +1,8 @@
+<?php
+include_once('config.php');
+$tambah = new tambah();
+$tambah->proses();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,7 +75,7 @@
     <div class="my-3 col-md-6">
         <div class="d-flex flex-column w-75">
     <label for="462_gajipokok"><h6>Gaji Pokok (Rp.) :</h6></label>
-    <input type="number" class="form-control p-1 m-1" name="462_gajipokok" id="462_gajipokok" aria-disabled="Disabled" disabled>
+    <input type="number" class="form-control p-1 m-1" name="462_gajipokok" id="462_gajipokok" readonly>
     </div>
     </div>
     <!-- Bonus -->

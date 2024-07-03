@@ -44,7 +44,38 @@ class page implements haikal{
 
     class tambah implements haikal{
     public function proses(){
-        // ... logika tambah
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_GET['page']='tambah') {
+            $koneksi = new connection();
+
+            $nomorinduk = $_POST['462_nomorinduk'];
+            $nama = $_POST['462_nama'];
+            $jabatan = $_POST['462_Jabatan'];
+            $nomorhp = $_POST['462_nomorhp'];
+            $gajipokok = $_POST['462_gajipokok'];
+            $bonus = $_POST['462_bonus'];
+            $absen = $_POST['462_absen'];
+
+            $query = $koneksi->db->prepare("INSERT INTO data_gaji 
+            (nomorinduk_karyawan, 
+            nama_karyawan, 
+            jabatan_karyawan, 
+            nomorhp_karyawan, 
+            gajipokok_karyawan, 
+            bonus_karyawan, 
+            absen_karyawan) 
+            VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $query->execute([
+                $nomorinduk, 
+                $nama, 
+                $jabatan, 
+                $nomorhp, 
+                $gajipokok, 
+                $bonus, 
+                $absen]);
+
+            header('Location: index.php');
+            exit();
+        }
     }
     }
 
