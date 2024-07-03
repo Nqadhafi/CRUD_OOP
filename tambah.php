@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script>
+        function nilaiGajiPokok() {
+            var jabatan = document.getElementById("462_Jabatan").value;
+            var gajiPokokInput = document.getElementById("462_gajipokok");
+            
+            if (jabatan === "Training") {
+                gajiPokokInput.value = 1500000;
+            } else if (jabatan === "Operator") {
+                gajiPokokInput.value = 2000000;
+            } else if (jabatan === "Supervisor") {
+                gajiPokokInput.value = 3000000;
+            } else {
+                gajiPokokInput.value = '';
+            }
+        }
+    </script>
 </head>
 <body>
   <form action="" method="post">
@@ -35,7 +51,7 @@
     <label for="462_Jabatan" class="form-label p-1">
         <h6>Jabatan :</h6>
     </label>
-    <select  class="form-select p-1 m-1" name="462_Jabatan">
+    <select  class="form-select p-1 m-1" name="462_Jabatan" id="462_Jabatan" onchange="nilaiGajiPokok()">
       <option value="Training">Training</option>
       <option value="Operator">Operator</option>
       <option value="Supervisor">Supervisor</option>
@@ -53,7 +69,7 @@
     <div class="my-3 col-md-6">
         <div class="d-flex flex-column w-75">
     <label for="462_gajipokok"><h6>Gaji Pokok (Rp.) :</h6></label>
-    <input type="number" class="form-control p-1 m-1" name="462_gajipokok" id="" aria-disabled="Disabled" disabled>
+    <input type="number" class="form-control p-1 m-1" name="462_gajipokok" id="462_gajipokok" aria-disabled="Disabled" disabled>
     </div>
     </div>
     <!-- Bonus -->
@@ -77,5 +93,7 @@
   </div>
   </form>
 </body>
-<script src="./css/bootstrap.bundle.min.js"></script>
+<script src="./css/bootstrap.bundle.min.js">
+    
+</script>
 </html>
