@@ -6,7 +6,7 @@ interface haikal{
 //koneksi database
 class connection{
 
-    protected $db;
+    public $db;
     public function __construct()
     {
     
@@ -56,7 +56,14 @@ class page implements haikal{
 
     class hapus implements haikal{
         public function proses(){
-            //  ... logika hapus
+            $koneksi = new connection();
+        if (isset($_GET['hapus'])) {
+            $nomorinduk = $_GET['hapus'];
+            $query = $koneksi->db->prepare("DELETE FROM data_gaji WHERE nomorinduk_karyawan = ?");
+            $query->execute([$nomorinduk]);
+            header('Location: index.php');
+            exit();
+        }
         }
     }
 ?>
