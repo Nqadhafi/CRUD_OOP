@@ -87,8 +87,8 @@ foreach ($data as $data) {
     echo "<td class='p-2'>" . $data['jabatan_karyawan'] . "</td>";
     echo "<td class='p-2'>" . $data['nomorhp_karyawan'] . "</td>";
     echo "<td class='p-2'>Rp." . $data['gajipokok_karyawan'] . "</td>";
-    echo "<td class='p-2'>" . $data['bonus_karyawan'] . "</td>";
-    echo "<td class='p-2'>Rp." . ($potongan = $data['absen_karyawan'] * 20000) . "</td>";
+    echo "<td class='p-2'>Rp." . $data['bonus_karyawan'] . "</td>";
+    echo "<td class='p-2'>Rp.-" . ($potongan = $data['absen_karyawan'] * 20000) . "</td>";
     echo "<td class='p-2'>Rp." . $data['takehome_karyawan'] . "</td>";
     echo "<td class='p-2'> ";
     echo "<a href='?page=edit&nomorinduk=" . $data['nomorinduk_karyawan'] . "' class='btn py-1 px-3 btn-success'>Edit</a> ";
