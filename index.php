@@ -52,11 +52,17 @@
         <div class="m-2">
         <table class="table table-striped table-bordered">
         <a href="?page=tambah" class="btn py-1 px-3 m-3 btn-success" style="width:10rem;">+ Tambah Data</a>
-    <div class="d-flex justify-content-center mx-auto">
+        
+    <div class="d-flex flex-column justify-content-center mx-auto">
+    
         <?php
             $page = new page();
             $page->proses();
             ?>
+        </div>
+        <div class="mb-3">
+            <i><h5>*Jumlah Potongan = Jumlah Absen * Rp.20.000,-</h5></i>
+            <i><h5>*Take Home Pay = Gaji Pokok + Bonus - Potongan</h5></i>
         </div>
         <thead>
             <td class="fw-bold bg-warning p-2">No.</td>
@@ -83,7 +89,7 @@ foreach ($data as $data) {
     echo "<td class='p-2'>Rp." . $data['gajipokok_karyawan'] . "</td>";
     echo "<td class='p-2'>" . $data['bonus_karyawan'] . "</td>";
     echo "<td class='p-2'>Rp." . ($potongan = $data['absen_karyawan'] * 20000) . "</td>";
-    echo "<td class='p-2'>Rp." . ((int)$data['gajipokok_karyawan'] - (int)$potongan + (int)$data['bonus_karyawan']) . "</td>";
+    echo "<td class='p-2'>Rp." . $data['takehome_karyawan'] . "</td>";
     echo "<td class='p-2'> ";
     echo "<a href='?page=edit&nomorinduk=" . $data['nomorinduk_karyawan'] . "' class='btn py-1 px-3 btn-success'>Edit</a> ";
     echo "<a href='?hapus=" . $data['nomorinduk_karyawan'] . "' onclick=\"return confirm('Apakah Anda Yakin Menghapus Data Ini?');\" class='btn py-1 px-2 btn-danger'>Hapus</a>";

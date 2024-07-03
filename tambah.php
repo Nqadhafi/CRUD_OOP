@@ -58,6 +58,7 @@ $tambah->proses();
         <h6>Jabatan :</h6>
     </label>
     <select  class="form-select p-1 m-1" name="462_Jabatan" id="462_Jabatan" onchange="nilaiGajiPokok()">
+      <option selected>Pilih Jabatan</option>
       <option value="Training">Training</option>
       <option value="Operator">Operator</option>
       <option value="Supervisor">Supervisor</option>
@@ -68,7 +69,7 @@ $tambah->proses();
 <div class="my-3 col-md-6">
 <div class="d-flex flex-column w-75">
     <label for="462_nomorhp"><h6>Nomor HP :</h6></label>
-    <input type="number" class="form-control p-1 m-1" name="462_nomorhp" id="">
+    <input type="tel" class="form-control p-1 m-1" name="462_nomorhp" id="" >
 </div>
     </div>
     <!-- Gaji Pokok -->

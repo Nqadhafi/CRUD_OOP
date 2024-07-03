@@ -54,6 +54,7 @@ class page implements haikal{
             $gajipokok = $_POST['462_gajipokok'];
             $bonus = $_POST['462_bonus'];
             $absen = $_POST['462_absen'];
+            $takehome = (int)$gajipokok + (int)$bonus - ((int)$absen*20000);
 
             $query = $koneksi->db->prepare("INSERT INTO data_gaji 
             (nomorinduk_karyawan, 
@@ -62,8 +63,9 @@ class page implements haikal{
             nomorhp_karyawan, 
             gajipokok_karyawan, 
             bonus_karyawan, 
-            absen_karyawan) 
-            VALUES (?, ?, ?, ?, ?, ?, ?)");
+            absen_karyawan,
+            takehome_karyawan) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             $query->execute([
                 $nomorinduk, 
                 $nama, 
@@ -71,7 +73,8 @@ class page implements haikal{
                 $nomorhp, 
                 $gajipokok, 
                 $bonus, 
-                $absen]);
+                $absen,
+                $takehome]);
 
             header('Location: index.php');
             exit();
