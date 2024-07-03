@@ -1,7 +1,7 @@
     <?php
     include ('config.php');
-    $koneksi = new connection();
-    $data =$koneksi->show();
+    $koneksi = new connection(); //Membuat objek koneksi (otomatis terbuat koneksi database menggunakan construct method)
+    $data =$koneksi->show(); //Mengeksekusi method show dalam class connection, menampilkan semua row yang ada di database
     if (isset($_GET['hapus'])) {
         $hapus = new hapus();
         $hapus->proses();
