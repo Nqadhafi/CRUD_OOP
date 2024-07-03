@@ -83,8 +83,35 @@ class page implements haikal{
     }
 
     class edit implements haikal{
+        public function getData(){
+            if(isset($_GET['page']) && $_GET['page'] == "edit"){
+                $koneksi = new connection();
+                $nomorinduk = $_GET['nomorinduk'];
+                $tampildata = $koneksi->db->prepare("SELECT * FROM data_gaji WHERE nomorinduk_karyawan = ?");
+                $tampildata->execute([$nomorinduk]);
+                $dataedit = $tampildata->fetchAll();
+                return $dataedit;
+            }
+        }
         public function proses(){
-            // ...logika edit
+           
+           if($_SERVER['REQUEST_METHOD'] === 'POST' && $_GET['page']='edit'){
+            $koneksi = new connection();
+            $nomorinduk = $_POST['462_nomorinduk'];
+            $nama = $_POST['462_nama'];
+            $jabatan = $_POST['462_Jabatan'];
+            $nomorhp = $_POST['462_nomorhp'];
+            $gajipokok = $_POST['462_gajipokok'];
+            $bonus = $_POST['462_bonus'];
+            $absen = $_POST['462_absen'];
+            $takehome = (int)$gajipokok + (int)$bonus - ((int)$absen*20000);
+            
+            $query = $koneksi->db->prepare("UPDATE data_gaji SET nama_karyawan = ?, jabatan_karyawan = ?, nomorhp_karyawan = ?, gajipokok_karyawan = ?, bonus_karyawan = ?, absen_karyawan = ?, takehome_karyawan = ? WHERE nomorinduk_karyawan = ?");
+            $query->execute([$nama, $jabatan, $nomorhp, $gajipokok, $bonus, $absen, $takehome, $nomorinduk]);
+
+            header('Location: index.php');
+            exit();
+           }
         }
     }
 

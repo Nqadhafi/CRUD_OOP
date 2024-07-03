@@ -46,7 +46,7 @@ $tambah->proses();
 <!-- Nama Karyawan -->
     <div class="my-3 col-md-6">
     <div class="d-flex flex-column w-75">
-    <label for="462_nomorinduk"><h6>Nama Karyawan :</h6></label>
+    <label for="462_nama"><h6>Nama Karyawan :</h6></label>
     <input type="text" class="form-control p-1 m-1" name="462_nama" id="" required>
     </div>
     </div>

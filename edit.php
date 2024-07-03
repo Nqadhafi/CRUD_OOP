@@ -1,3 +1,10 @@
+<?php
+include_once('config.php');
+$edit = new edit();
+$edit->proses();
+$tampil = $edit->getData();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +13,23 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
+<script>
+        // Fungsi untuk memberi value otomatis kepada input gaji pokok
+        function nilaiGajiPokok() {
+            var jabatan = document.getElementById("462_Jabatan").value;
+            var gajiPokokInput = document.getElementById("462_gajipokok");
+            
+            if (jabatan === "Training") {
+                gajiPokokInput.value = 1500000;
+            } else if (jabatan === "Operator") {
+                gajiPokokInput.value = 2000000;
+            } else if (jabatan === "Supervisor") {
+                gajiPokokInput.value = 3000000;
+            } else {
+                gajiPokokInput.value = '';
+            }
+        }
+    </script>
 <body>
   <form action="" method="post">
   <div class="container-fluid p-3 my-5 w-75 rounded border border-warning align-self-center">
@@ -18,14 +42,14 @@
     <div class="my-3 col-md-6">
         <div class="d-flex flex-column w-75">
     <label for="462_nomorinduk"><h6>Nomor Induk Karyawan :</h6></label>
-    <input type="number" class="form-control p-1 m-1" name="462_nomorinduk" id="" aria-disabled="Disabled" disabled>
+    <input type="number" value="<?php echo $tampil[0]['nomorinduk_karyawan']; ?>" class="form-control p-1 m-1" name="462_nomorinduk" id="" aria-disabled="Disabled" readonly>
     </div>
     </div>
 <!-- Nama Karyawan -->
     <div class="my-3 col-md-6">
     <div class="d-flex flex-column w-75">
-    <label for="462_nomorinduk"><h6>Nama Karyawan :</h6></label>
-    <input type="text" class="form-control p-1 m-1" name="462_nama" id="">
+    <label for="462_nama"><h6>Nama Karyawan :</h6></label>
+    <input type="text" value="<?php echo $tampil[0]['nama_karyawan']; ?>" class="form-control p-1 m-1" name="462_nama" id="">
     </div>
     </div>
 
@@ -35,10 +59,10 @@
     <label for="462_Jabatan" class="form-label p-1">
         <h6>Jabatan :</h6>
     </label>
-    <select  class="form-select p-1 m-1" name="462_Jabatan" aria-disabled="Disabled" disabled>
-      <option value="Training">Training</option>
-      <option value="Operator">Operator</option>
-      <option value="Supervisor">Supervisor</option>
+    <select  class="form-select p-1 m-1" name="462_Jabatan" id="462_Jabatan" onchange="nilaiGajiPokok()">
+      <option value="Training" <?php echo ($tampil[0]['jabatan_karyawan'] == 'Training') ? 'selected' : ''; ?>>Training</option>
+      <option value="Operator"<?php echo ($tampil[0]['jabatan_karyawan'] == 'Operator') ? 'selected' : ''; ?>>Operator</option>
+      <option value="Supervisor" <?php echo ($tampil[0]['jabatan_karyawan'] == 'Supervisor') ? 'selected' : ''; ?>>Supervisor</option>
     </select>
     </div>
 </div>
@@ -46,28 +70,28 @@
 <div class="my-3 col-md-6">
 <div class="d-flex flex-column w-75">
     <label for="462_nomorhp"><h6>Nomor HP :</h6></label>
-    <input type="number" class="form-control p-1 m-1" name="462_nomorhp" id="">
+    <input type="number" value="<?php echo $tampil[0]['nomorhp_karyawan']; ?>" class="form-control p-1 m-1" name="462_nomorhp" id="">
 </div>
     </div>
     <!-- Gaji Pokok -->
     <div class="my-3 col-md-6">
         <div class="d-flex flex-column w-75">
     <label for="462_gajipokok"><h6>Gaji Pokok (Rp.) :</h6></label>
-    <input type="number" class="form-control p-1 m-1" name="462_gajipokok" id="" aria-disabled="Disabled" disabled>
+    <input type="number" value="<?php echo $tampil[0]['gajipokok_karyawan']; ?>" class="form-control p-1 m-1" name="462_gajipokok" id="462_gajipokok" aria-disabled="Disabled" readonly>
     </div>
     </div>
     <!-- Bonus -->
     <div class="my-3 col-md-6">
         <div class="d-flex flex-column w-75">
     <label for="462_bonus"><h6>Bonus Prestasi (Rp.) :</h6></label>
-    <input type="number" class="form-control p-1 m-1" name="462_bonus" id="">
+    <input type="number" value="<?php echo $tampil[0]['bonus_karyawan']; ?>" class="form-control p-1 m-1" name="462_bonus" id="">
     </div>
     </div>
     <!-- Alpha -->
     <div class="my-3 col-md-6">
         <div class="d-flex flex-column w-75">
     <label for="462_absen"><h6>Alpha (hari) :</h6></label>
-    <input type="number" class="form-control p-1 m-1" name="462_absen" id="">
+    <input type="number" value="<?php echo $tampil[0]['absen_karyawan']; ?>" class="form-control p-1 m-1" name="462_absen" id="">
     </div>
     </div>
     </div>
