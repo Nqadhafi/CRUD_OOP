@@ -1,7 +1,7 @@
 <?php
-include_once('config.php');
-$tambah = new tambah();
-$tambah->proses();
+include_once('config.php'); //menyertakan config.php, tapi jika sudah ada maka diabaikan
+$tambah = new tambah(); //membuat objek dari class tambah
+$tambah->proses(); //mengeksekusi method proses() dari class tambah
 ?>
 <!DOCTYPE html>
 <html lang="en">
