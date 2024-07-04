@@ -137,25 +137,27 @@ class page implements haikal{ //class ini menghandel tampilan form yang akan dii
             absen_karyawan = ?, 
             takehome_karyawan = ? 
             WHERE nomorinduk_karyawan = ?");
+
+             // mengeksekusi query dengan isian variabel2 yang sudah menampung value dari method post di atas, ingat penempatan harus urut sesuai query insert di atas
             $query->execute([$nama, $jabatan, $nomorhp, $gajipokok, $bonus, $absen, $takehome, $nomorinduk]);
 
-                header('Location: index.php');
+                header('Location: index.php'); //jika sukses maka akan kembali ke halaman index
                 exit();
             }
          }
          }
 
-    class hapus implements haikal{
+    class hapus implements haikal{ 
         public function cari($keyword){
             // kosong
         }
-        public function proses(){
-            $koneksi = new connection();
-        if (isset($_GET['hapus'])) {
-            $nomorinduk = $_GET['hapus'];
-            $query = $koneksi->db->prepare("DELETE FROM data_gaji WHERE nomorinduk_karyawan = ?");
-            $query->execute([$nomorinduk]);
-            header('Location: index.php');
+        public function proses(){ //menerapkan kerangka dari interface haikal yaitu method proses()
+            $koneksi = new connection(); //membuat koneksi ke database supaya dapat mengeksekusi query dengan memanfaatkan membuat objek dari class connection
+        if (isset($_GET['hapus'])) { //logika di bawah hanya akan dieksekusi jika url dengan $_GET['hapus] ada
+            $nomorinduk = $_GET['hapus']; //menyimpan value parameter dari $_GET['hapus] ke dalam variabel $nomorinduk
+            $query = $koneksi->db->prepare("DELETE FROM data_gaji WHERE nomorinduk_karyawan = ?"); //query untuk menghapus data dalam database dengan acuan data yang dihapus pada kolom nomorinduk_karyawan sama dengan variabel $nomorinduk
+            $query->execute([$nomorinduk]); //mengeksekusi query di atas dengan menangkap value dari $nomorinduk sebagai acuan
+            header('Location: index.php'); //jika sukses maka akan kembali ke halaman index
             exit();
         }
         }
