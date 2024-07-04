@@ -110,7 +110,7 @@ foreach ($data as $data) { //menampilkan setiap value dari $data yang isinya ada
     echo "<td class='p-2'>Rp." . $data['takehome_karyawan'] . "</td>";
     echo "<td class='p-2'> ";
     echo "<a href='?page=edit&nomorinduk=" . $data['nomorinduk_karyawan'] . "' class='btn py-1 px-3 btn-success'>Edit</a> ";
-    echo "<a href='?hapus=" . $data['nomorinduk_karyawan'] . "' onclick=\"return confirm('Apakah Anda Yakin Menghapus Data Ini?');\" class='btn py-1 px-2 btn-danger'>Hapus</a>";
+    echo "<a href='?hapus=" . $data['nomorinduk_karyawan'] . "' onclick=\"return confirm('Apakah Anda Yakin Menghapus Data Ini?');\" class='btn py-1 px-2 btn-danger'>Hapus</a>"; // validasi/ konfirmasi sebelum mengeksekusi button hapuss
     echo "</td>";
     echo "</tr>";
     $nomor++; //setiap row yang dibuat, maka value $nomor juga akan bertambah
