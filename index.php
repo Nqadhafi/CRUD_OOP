@@ -74,7 +74,7 @@
             <i><h5>*Jumlah Potongan = Jumlah Absen * Rp.20.000,-</h5></i>
             <i><h5>*Take Home Pay = Gaji Pokok + Bonus - Potongan</h5></i>
         </div>
-        <div class ="my-3 d-flex justify-content-center">\
+        <div class ="my-3 d-flex justify-content-center">
             <!-- Form cari data, method get -->
             <form method="get">
                 <input type="text" class="form-control w-25 p-2" name="462_cari" id="" placeholder="Cari Data...">
