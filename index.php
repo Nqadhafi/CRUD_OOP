@@ -36,7 +36,7 @@
     </div>
     <div class="card-body align-items-center align-self-center px-4">
         <h5 class="card-text">Nama : Haikal</h5>
-        <h5 class="card-text">NIM : 999999</h5>
+        <h5 class="card-text">NIM : 462</h5>
         <h5 class="card-text">Jabatan : Human Resource Departement</h5>
     </div>
     </div>
