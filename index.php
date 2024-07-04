@@ -1,10 +1,10 @@
-    <?php
+<?php
     include ('config.php');
     $koneksi = new connection(); //Membuat objek koneksi (otomatis terbuat koneksi database menggunakan construct method)
     $data =$koneksi->show(); //Mengeksekusi method show dalam class connection, menampilkan semua row yang ada di database
-    if (isset($_GET['hapus'])) {
-        $hapus = new hapus();
-        $hapus->proses();
+    if (isset($_GET['hapus'])) { //jika parameter $_GET['hapus'] ada, 
+        $hapus = new hapus(); //maka akan membuat objek dari class hapus
+        $hapus->proses();   //kemudian akan mengeksekusi method proses pada class hapus
     }
     
     ?>
@@ -58,6 +58,7 @@
     <div class="d-flex flex-column justify-content-center mx-auto">
     
         <?php
+        //memanggil class page untuk meng-include halaman sesuai parameter dari url $_GET['page']
             $page = new page();
             $page->proses();
             if (isset($_GET['462_cari'])) {
