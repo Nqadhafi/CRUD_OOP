@@ -58,7 +58,7 @@
     <div class="d-flex flex-column justify-content-center mx-auto">
     
         <?php
-        //memanggil class page untuk meng-include halaman sesuai parameter $_GET['page']
+        //memanggil class page untuk meng-include halaman sesuai parameter dari url $_GET['page']
             $page = new page();
             $page->proses();
             if (isset($_GET['462_cari'])) {
