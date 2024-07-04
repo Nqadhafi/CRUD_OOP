@@ -1,11 +1,12 @@
-    <?php
+<?php
     include ('config.php');
     $koneksi = new connection(); //Membuat objek koneksi (otomatis terbuat koneksi database menggunakan construct method)
     $data =$koneksi->show(); //Mengeksekusi method show dalam class connection, menampilkan semua row yang ada di database
-    if (isset($_GET['hapus'])) {
-        $hapus = new hapus();
-        $hapus->proses();
+    if (isset($_GET['hapus'])) { //jika parameter $_GET['hapus'] ada, 
+        $hapus = new hapus(); //maka akan membuat objek dari class hapus
+        $hapus->proses();   //kemudian akan mengeksekusi method proses pada class hapus
     }
+    
     ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -15,6 +16,7 @@
         <link rel="stylesheet" href="./css/main.css">
         <link rel="stylesheet" href="./css/bootstrap.min.css">
         <title>Aplikasi Penggajian Karyawan</title>
+    
     </head>
     <body>
         <div class="container-fluid">
@@ -36,7 +38,7 @@
     </div>
     <div class="card-body align-items-center align-self-center px-4">
         <h5 class="card-text">Nama : Haikal</h5>
-        <h5 class="card-text">NIM : 462</h5>
+        <h5 class="card-text">NIM : 999999</h5>
         <h5 class="card-text">Jabatan : Human Resource Departement</h5>
     </div>
     </div>
@@ -56,13 +58,23 @@
     <div class="d-flex flex-column justify-content-center mx-auto">
     
         <?php
+        //memanggil class page untuk meng-include halaman sesuai parameter $_GET['page']
             $page = new page();
             $page->proses();
+            if (isset($_GET['462_cari'])) {
+                $data = $page->cari($_GET['462_cari']);
+            }
             ?>
         </div>
         <div class="mb-3">
             <i><h5>*Jumlah Potongan = Jumlah Absen * Rp.20.000,-</h5></i>
             <i><h5>*Take Home Pay = Gaji Pokok + Bonus - Potongan</h5></i>
+        </div>
+        <div class ="my-3 d-flex justify-content-center">
+            <form method="get">
+                <input type="text" class="form-control w-25 p-2" name="462_cari" id="" placeholder="Cari Data...">
+                <button class="btn btn-primary p-2 ms-3">Cari Data</button>
+            </form>
         </div>
         <thead>
             <td class="fw-bold bg-warning p-2">No.</td>

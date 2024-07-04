@@ -1,6 +1,7 @@
 <?php
 interface haikal{
     public function proses();
+    public function cari($keyword);
 }
 
 //koneksi database
@@ -40,9 +41,19 @@ class page implements haikal{
                     default ;
         }
     }
+    public function cari($keyword){
+        $koneksi = new connection();
+        $query = $koneksi->db->prepare("SELECT * FROM data_gaji WHERE nama_karyawan LIKE ? OR jabatan_karyawan LIKE ? OR nomorhp_karyawan LIKE ?");
+        $query->execute(['%' . $keyword . '%', '%' . $keyword . '%', '%' . $keyword . '%']);
+        $data = $query->fetchAll();
+        return $data;
+    }
     }
 
     class tambah implements haikal{
+    public function cari($keyword){
+        // kosong
+    }
     public function proses(){
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_GET['page']='tambah') {
             $koneksi = new connection();
@@ -80,9 +91,13 @@ class page implements haikal{
             exit();
         }
     }
+    
     }
 
     class edit implements haikal{
+        public function cari($keyword){
+            // kosong
+        }
         public function getData(){
             if(isset($_GET['page']) && $_GET['page'] == "edit"){
                 $koneksi = new connection();
@@ -116,6 +131,9 @@ class page implements haikal{
     }
 
     class hapus implements haikal{
+        public function cari($keyword){
+            // kosong
+        }
         public function proses(){
             $koneksi = new connection();
         if (isset($_GET['hapus'])) {
