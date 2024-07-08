@@ -71,7 +71,7 @@
             ?>
         </div>
         <div class="m-3">
-            <h4><i>* 5 hari izin = potongan Rp.20.000,-</i></h4>
+            <h4><i>* 5 hari izin = potongan Rp.20.000,- (Maks potongan izin Rp.60.000,-)</i></h4>
             <h4><i>* 1 hari alpha = potongan Rp.20.000,-</i></h4>
 
         </div>

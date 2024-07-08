@@ -17,9 +17,9 @@ $tambah->proses(); //mengeksekusi method proses() dari class tambah
             var pajak = parseFloat(document.getElementById("454_pajak").value) || 0;
             var izin = parseFloat(document.getElementById("454_izin").value) || 0;
             var alpha = parseFloat(document.getElementById("454_alpha").value) || 0;
-            if (izin > 15) {
+            if (izin >= 15) {
         izin = 60000;
-    } else if (izin > 10) {
+    } else if (izin >= 10) {
         izin = 40000;
     } else if (izin >= 5) {
         izin = 20000;
