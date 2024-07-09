@@ -1,10 +1,9 @@
 <?php
     include ('config.php');
-    $koneksi = new connection(); //Membuat objek koneksi (otomatis terbuat koneksi database menggunakan construct method)
-    $data =$koneksi->show(); //Mengeksekusi method show dalam class connection, menampilkan semua row yang ada di database
+    $koneksi = new Lib454(); //Membuat objek koneksi (otomatis terbuat koneksi database menggunakan construct method)
+    $data =$koneksi->tampilData(); //Mengeksekusi method show dalam class connection, menampilkan semua row yang ada di database
     if (isset($_GET['hapus'])) { //jika parameter $_GET['hapus'] ada, 
-        $hapus = new hapus(); //maka akan membuat objek dari class hapus
-        $hapus->proses();   //kemudian akan mengeksekusi method proses pada class hapus
+        $koneksi->hapusData();   //kemudian akan mengeksekusi method proses pada class hapus
     }
     
     ?>
@@ -59,8 +58,8 @@
     
         <?php
         //memanggil class page untuk meng-include halaman sesuai parameter dari url $_GET['page']
-            $page = new page();
-            $page->proses();
+            
+            $koneksi->pageShow();
 
             
             if (isset($_GET['454_cari'])) { //Jika url ada $_GET['454_cari'], maka akan mengeksekusi kode di bawah

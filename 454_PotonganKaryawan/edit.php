@@ -1,8 +1,8 @@
 <?php
 include_once('config.php'); //menyertakan config.php, tapi jika sudah ada maka diabaikan
-$edit = new edit(); //membuat objek dari class edit
-$edit->proses(); //mengeksekusi method proses() dari class edit
-$tampil = $edit->getData(); //mengeksekusi method getData() dari ckass edit untuk menampilkan data dari database yang akan kita update di bawah, disimpan ke variabel $tampil dengan isinya berupa array
+$edit = new Lib454(); //membuat objek dari class edit
+$edit->editData(); //mengeksekusi method proses() dari class edit
+$tampil = $edit->tampilData(); //mengeksekusi method getData() dari ckass edit untuk menampilkan data dari database yang akan kita update di bawah, disimpan ke variabel $tampil dengan isinya berupa array
 
 ?>
 <!DOCTYPE html>
