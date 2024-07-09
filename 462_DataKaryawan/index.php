@@ -1,10 +1,9 @@
 <?php
     include ('config.php');
-    $koneksi = new connection(); //Membuat objek koneksi (otomatis terbuat koneksi database menggunakan construct method)
-    $data =$koneksi->show(); //Mengeksekusi method show dalam class connection, menampilkan semua row yang ada di database
+    $koneksi = new Lib462(); //Membuat objek koneksi (otomatis terbuat koneksi database menggunakan construct method)
+    $data =$koneksi->tampilData(); //Mengeksekusi method show dalam class connection, menampilkan semua row yang ada di database
     if (isset($_GET['hapus'])) { //jika parameter $_GET['hapus'] ada, 
-        $hapus = new hapus(); //maka akan membuat objek dari class hapus
-        $hapus->proses();   //kemudian akan mengeksekusi method proses pada class hapus
+        $koneksi->hapusData();   //kemudian akan mengeksekusi method proses pada class hapus
     }
     
     ?>
@@ -59,14 +58,14 @@
     
         <?php
         //memanggil class page untuk meng-include halaman sesuai parameter dari url $_GET['page']
-            $page = new page();
-            $page->proses();
+            
+            $koneksi->pageShow();
 
             
             if (isset($_GET['462_cari'])) { //Jika url ada $_GET['462_cari'], maka akan mengeksekusi kode di bawah
                
                 //mengeksekusi method cari() pada class page, dengan value parameter yang ditangkap berasal dari value $_GET['462_cari'] dan disimpan ke variabel $data
-                $data = $page->cari($_GET['462_cari']);
+                $data = $koneksi->cariData($_GET['462_cari']);
             }
             ?>
         </div>
