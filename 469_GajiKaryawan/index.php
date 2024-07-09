@@ -26,6 +26,11 @@
         <a class="navbar-brand text-white p-3" href="../">
         <h3>Home</h3>
         </a>
+        <div class="d-flex justify-space-between gap-4">
+                <a href="../462_DataKaryawan/" class="btn btn-dark fw-bold ms-5 p-2">Data Karyawan</a>
+                <a href="../469_GajiKaryawan/" class="btn btn-success fw-bold p-2">Gaji Karyawan</a>
+                <a href="../454_PotonganKaryawan/" class="btn btn-warning fw-bold p-2">Potongan Karyawan</a>
+            </div>
     </div>
     </nav>
     <!-- User profile -->
