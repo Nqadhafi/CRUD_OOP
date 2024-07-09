@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 07, 2024 at 01:29 PM
+-- Generation Time: Jul 09, 2024 at 07:47 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 CREATE DATABASE IF NOT EXISTS `kelompok_gaji` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `kelompok_gaji`;
 
+
 CREATE TABLE `data_karyawan` (
   `id_karyawan` int(4) NOT NULL,
   `nama_karyawan` varchar(40) NOT NULL,
@@ -42,7 +43,8 @@ CREATE TABLE `data_karyawan` (
 --
 
 INSERT INTO `data_karyawan` (`id_karyawan`, `nama_karyawan`, `alamat_karyawan`, `usia_karyawan`, `jabatan_karyawan`) VALUES
-(333, 'Herman', 'asdasdasd', 12, 'Operator');
+(333, 'Herman', 'asdasdasd', 12, 'Operator'),
+(442, 'aksjdaksd', 'asdasdasd', 12, 'Training');
 
 -- --------------------------------------------------------
 
@@ -52,6 +54,7 @@ INSERT INTO `data_karyawan` (`id_karyawan`, `nama_karyawan`, `alamat_karyawan`, 
 
 CREATE TABLE `gaji_karyawan` (
   `id_gaji` int(4) NOT NULL,
+  `nama_gaji` varchar(30) NOT NULL,
   `pokok_gaji` bigint(20) NOT NULL,
   `lembur_gaji` bigint(20) DEFAULT NULL,
   `tunjangan_gaji` bigint(20) DEFAULT NULL,
@@ -63,9 +66,9 @@ CREATE TABLE `gaji_karyawan` (
 -- Dumping data for table `gaji_karyawan`
 --
 
-INSERT INTO `gaji_karyawan` (`id_gaji`, `pokok_gaji`, `lembur_gaji`, `tunjangan_gaji`, `bonus_gaji`, `total_gaji`) VALUES
-(22, 300000, 10000, 50, 5000, 315050),
-(33, 2500000, 500000, 50000, 100000, 3150000);
+INSERT INTO `gaji_karyawan` (`id_gaji`, `nama_gaji`, `pokok_gaji`, `lembur_gaji`, `tunjangan_gaji`, `bonus_gaji`, `total_gaji`) VALUES
+(44, 'ucup mantap', 3000000, 50000, 10000, 100000, 3160000),
+(55, 'Andre ganteng', 40000, 0, 0, 0, 40000);
 
 -- --------------------------------------------------------
 
@@ -75,6 +78,7 @@ INSERT INTO `gaji_karyawan` (`id_gaji`, `pokok_gaji`, `lembur_gaji`, `tunjangan_
 
 CREATE TABLE `potongan_karyawan` (
   `id_potongan` int(4) NOT NULL,
+  `nama_potongan` varchar(30) NOT NULL,
   `jamkes_potongan` bigint(20) NOT NULL,
   `pajak_potongan` bigint(20) NOT NULL,
   `izin_potongan` int(2) DEFAULT NULL,
@@ -86,9 +90,10 @@ CREATE TABLE `potongan_karyawan` (
 -- Dumping data for table `potongan_karyawan`
 --
 
-INSERT INTO `potongan_karyawan` (`id_potongan`, `jamkes_potongan`, `pajak_potongan`, `izin_potongan`, `alpha_potongan`, `total_potongan`) VALUES
-(22, 30000, 230000, 5, 1, 300000),
-(33, 30000, 100000, 1, 0, 130000);
+INSERT INTO `potongan_karyawan` (`id_potongan`, `nama_potongan`, `jamkes_potongan`, `pajak_potongan`, `izin_potongan`, `alpha_potongan`, `total_potongan`) VALUES
+(33, 'saiful jamil', 30000, 200000, 1, 0, 230000),
+(44, 'astaghfirullah', 50500, 10000, 11, 2, 140500),
+(55, 'tiara', 44444, 4444, 0, 0, 48888);
 
 --
 -- Indexes for dumped tables
