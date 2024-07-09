@@ -65,7 +65,7 @@
             if (isset($_GET['454_cari'])) { //Jika url ada $_GET['454_cari'], maka akan mengeksekusi kode di bawah
                
                 //mengeksekusi method cari() pada class page, dengan value parameter yang ditangkap berasal dari value $_GET['454_cari'] dan disimpan ke variabel $data
-                $data = $page->cari($_GET['454_cari']);
+                $data = $koneksi->cariData($_GET['454_cari']);
             }
             ?>
         </div>
