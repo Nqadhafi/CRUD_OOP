@@ -89,6 +89,7 @@
         <thead>
             <td class="fw-bold bg-warning p-2">No.</td>
             <td class="fw-bold bg-warning p-2">ID Potongan</td>
+            <td class="fw-bold bg-warning p-2">Nama</td>
             <td class="fw-bold bg-warning p-2">Jaminan Kesehatan</td>
             <td class="fw-bold bg-warning p-2">Pajak</td>
             <td class="fw-bold bg-warning p-2">Jumlah Izin(Hari)</td>
@@ -104,6 +105,7 @@ foreach ($data as $data) { //menampilkan setiap value dari $data yang isinya ada
     echo "<tr>";
     echo "<td class='p-2'>" . $nomor . "</td>";
     echo "<td class='p-2'>" . $data['id_potongan'] . "</td>";
+    echo "<td class='p-2'>" . $data['nama_potongan'] . "</td>";
     echo "<td class='p-2'>Rp." . $data['jamkes_potongan'] . "</td>";
     echo "<td class='p-2'>Rp." . $data['pajak_potongan'] . "</td>";
     echo "<td class='p-2'>" . $data['izin_potongan'] . " Hari</td>";

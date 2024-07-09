@@ -36,6 +36,7 @@ class Lib454 implements prass{
             if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_GET['page']='tambah') { //menerapkan kerangka dari interface prass
             //menampung data2 yang dikirim melalui form tambah.php dengan method post ke dalam variabel2 berikut
             $id = $_POST['454_idpotongan'];
+            $nama = $_POST['454_nama'];
             $jamkes = $_POST['454_jamkes'];
             $pajak = $_POST['454_pajak'];
             $izin = $_POST['454_izin'];
@@ -44,11 +45,11 @@ class Lib454 implements prass{
 
         //membuat query untuk insert data ke dalam kolom2 yang ada di database
             $query = $this->db->prepare("INSERT INTO potongan_karyawan 
-            (id_potongan, jamkes_potongan, pajak_potongan, izin_potongan, alpha_potongan, total_potongan) 
-             VALUES (?, ?, ?, ?, ?, ?)");
+            (id_potongan, nama_potongan, jamkes_potongan, pajak_potongan, izin_potongan, alpha_potongan, total_potongan) 
+             VALUES (?, ?, ?, ?, ?, ?, ?)");
 
         // mengeksekusi query dengan isian variabel2 yang sudah menampung value dari method post di atas, ingat penempatan harus urut sesuai query insert di atas
-        $query->execute([$id, $jamkes,  $pajak, $izin, $alpha, $total]);
+        $query->execute([$id, $nama, $jamkes,  $pajak, $izin, $alpha, $total]);
             header('Location: index.php'); //jika sukses maka akan kembali ke halaman index
         exit();
     }
@@ -69,6 +70,7 @@ public function editData(){ //menerapkan kerangka dari interface prass yaitu met
     if($_SERVER['REQUEST_METHOD'] === 'POST' && $_GET['page']='edit'){ //logika di bawah hanya akan di picu apabila ada method POST yang dijalankan dan value/parameter dari $GET['page'] adalah "edit"
    //menampung data2 yang dikirim melalui form edit.php dengan method post ke dalam variabel2 berikut
    $id = $_POST['454_idpotongan'];
+   $nama = $_POST['454_nama'];
    $jamkes = $_POST['454_jamkes'];
    $pajak = $_POST['454_pajak'];
    $izin = $_POST['454_izin'];
@@ -76,9 +78,9 @@ public function editData(){ //menerapkan kerangka dari interface prass yaitu met
    $total = $_POST['454_total'];
     
     //membuat query untuk update data ke dalam kolom2 yang ada di database, dengan syarat data yang di update pada kolom id_potongan bervalue sama dengan $id
-    $query = $this->db->prepare("UPDATE potongan_karyawan SET jamkes_potongan = ?, pajak_potongan = ?, izin_potongan = ?, alpha_potongan = ?, total_potongan = ? WHERE id_potongan = ?");
+    $query = $this->db->prepare("UPDATE potongan_karyawan SET jamkes_potongan = ?,nama_potongan = ?, pajak_potongan = ?, izin_potongan = ?, alpha_potongan = ?, total_potongan = ? WHERE id_potongan = ?");
      // mengeksekusi query dengan isian variabel2 yang sudah menampung value dari method post di atas, ingat penempatan harus urut sesuai query insert di atas
-    $query->execute([$jamkes, $pajak, $izin, $alpha, $total, $id]);
+    $query->execute([$jamkes, $nama, $pajak, $izin, $alpha, $total, $id]);
         header('Location: index.php'); //jika sukses maka akan kembali ke halaman index
         exit();
     }

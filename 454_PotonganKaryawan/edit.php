@@ -2,7 +2,7 @@
 include_once('config.php'); //menyertakan config.php, tapi jika sudah ada maka diabaikan
 $edit = new Lib454(); //membuat objek dari class edit
 $edit->editData(); //mengeksekusi method proses() dari class edit
-$tampil = $edit->tampilData(); //mengeksekusi method getData() dari ckass edit untuk menampilkan data dari database yang akan kita update di bawah, disimpan ke variabel $tampil dengan isinya berupa array
+$tampil = $edit->ambilData(); //mengeksekusi method getData() dari ckass edit untuk menampilkan data dari database yang akan kita update di bawah, disimpan ke variabel $tampil dengan isinya berupa array
 
 ?>
 <!DOCTYPE html>
@@ -52,6 +52,13 @@ $tampil = $edit->tampilData(); //mengeksekusi method getData() dari ckass edit u
     <input type="number" class="form-control p-1 m-1" name="454_idpotongan" id="" value="<?php echo $tampil[0]['id_potongan']?>" required readonly>
     </div>
     </div>
+          <!-- Nama Karyawan -->
+          <div class="my-3 col-md-6">
+      <div class="d-flex flex-column w-75">
+      <label for="454_nama"><h6>Nama Karyawan :</h6></label>
+      <input type="text" class="form-control p-1 m-1" name="454_nama" id="" value="<?php echo $tampil[0]['nama_potongan']?>"required>
+      </div>
+      </div>
 <!-- Jaminan Kesehatan -->
 <div class="my-3 col-md-6">
         <div class="d-flex flex-column w-75">
