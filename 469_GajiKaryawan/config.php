@@ -1,11 +1,16 @@
 <?php
 interface jonathan{ //kerangka class interface, nantinya semua method yang ada di interface harus ada di setiap class yang mengimplementasikanya walaupun kosong
-    public function proses(); //kerangka method proses()
-    public function cari($keyword); //kerangka method cari($parameter)
+ public function tampilData();
+ public function tambahData();
+ public function ambilData();
+ public function editData();
+ public function cariData($keyword);
+ public function hapusData();
+public function pageShow(); 
 }
 
 //koneksi database
-class Lib469{
+class Lib469 implements jonathan{
 
     public $db;
     public function __construct() //method construct, otomatis tereksekusi saat objek class Lib469 dibuat
