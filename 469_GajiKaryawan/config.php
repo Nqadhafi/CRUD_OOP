@@ -85,7 +85,8 @@ class Lib469 implements jonathan{
         }
      }
 
-    public function cariData($keyword){ //mengimplementasikan kerangka pada interface jonathan dengan parameter $keyword, class ini untuk pencarian data
+   
+     public function cariData($keyword){ //mengimplementasikan kerangka pada interface jonathan dengan parameter $keyword, class ini untuk pencarian data
         $query = $this->db->prepare("SELECT * FROM gaji_karyawan WHERE id_gaji LIKE ?"); //query untuk menampilkan data berdasar kecocokan keyword dengan kolom id_gaji
         $query->execute(['%' . $keyword . '%']); //mengeksekusi query dengan mengambil value dari parameter $keyword untuk di cari di setiap kolom yang ditentukan
         $data = $query->fetchAll(); //memfetching hasil data yang ada di variable $query yang nantinya akan berbentuk array dan disimpan ke variabel $data
