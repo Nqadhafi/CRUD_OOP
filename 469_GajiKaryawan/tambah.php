@@ -38,6 +38,13 @@ $tambah->tambahData(); //mengeksekusi method proses() dari class tambah
             <input type="number" class="form-control p-1 m-1" name="469_idgaji" id="469_idgaji" required>
           </div>
         </div>
+        <!-- Nama Karyawan -->
+     <div class="my-3 col-md-6">
+      <div class="d-flex flex-column w-75">
+      <label for="469_nama"><h6>Nama Karyawan :</h6></label>
+      <input type="text" class="form-control p-1 m-1" name="469_nama" id="" required>
+      </div>
+      </div>
         <!-- Gaji Pokok -->
         <div class="my-3 col-md-6">
           <div class="d-flex flex-column w-75">

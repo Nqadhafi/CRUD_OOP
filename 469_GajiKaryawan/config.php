@@ -36,6 +36,7 @@ class Lib469 implements jonathan{
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_GET['page']='tambah') { //menerapkan kerangka dari interface jonathan yaitu method proses()       
             //menampung data2 yang dikirim melalui form tambah.php dengan method post ke dalam variabel2 berikut
             $id = $_POST['469_idgaji'];
+            $nama = $_POST['469_nama'];
             $pokok = $_POST['469_pokokgaji'];
             $lembur = $_POST['469_lemburgaji'];
             $tunjangan = $_POST['469_tunjangangaji'];
@@ -44,11 +45,11 @@ class Lib469 implements jonathan{
 
             //membuat query untuk insert data ke dalam kolom2 yang ada di database
             $query = $this->db->prepare("INSERT INTO gaji_karyawan 
-            (id_gaji, pokok_gaji, lembur_gaji, tunjangan_gaji, bonus_gaji, total_gaji) 
-            VALUES (?, ?, ?, ?, ?, ?)");
+            (id_gaji, nama_gaji, pokok_gaji, lembur_gaji, tunjangan_gaji, bonus_gaji, total_gaji) 
+            VALUES (?, ?, ?, ?, ?, ?, ?)");
 
             // mengeksekusi query dengan isian variabel2 yang sudah menampung value dari method post di atas, ingat penempatan harus urut sesuai query insert di atas
-            $query->execute([$id, $pokok, $lembur, $tunjangan, $bonus, $total, ]);
+            $query->execute([$id, $nama, $pokok, $lembur, $tunjangan, $bonus, $total ]);
                 header('Location: index.php'); //jika sukses maka akan kembali ke halaman index
             exit();
         }
@@ -69,6 +70,7 @@ class Lib469 implements jonathan{
         if($_SERVER['REQUEST_METHOD'] === 'POST' && $_GET['page']='edit'){ //logika di bawah hanya akan di picu apabila ada method POST yang dijalankan dan value/parameter dari $GET['page'] adalah "edit"
        //menampung data2 yang dikirim melalui form edit.php dengan method post ke dalam variabel2 berikut
        $id = $_POST['469_idgaji'];
+       $nama = $_POST['469_nama'];
        $pokok = $_POST['469_pokokgaji'];
        $lembur = $_POST['469_lemburgaji'];
        $tunjangan = $_POST['469_tunjangangaji'];
@@ -76,10 +78,10 @@ class Lib469 implements jonathan{
        $total = $_POST['469_kotorgaji'];
         
         //membuat query untuk update data ke dalam kolom2 yang ada di database, dengan syarat data yang di update pada kolom id_gaji bervalue sama dengan $id
-        $query = $this->db->prepare("UPDATE gaji_karyawan SET pokok_gaji = ?, lembur_gaji = ?, tunjangan_gaji = ?, bonus_gaji = ?, total_gaji = ? WHERE id_gaji = ?");
+        $query = $this->db->prepare("UPDATE gaji_karyawan SET pokok_gaji = ?,nama_gaji= ?, lembur_gaji = ?, tunjangan_gaji = ?, bonus_gaji = ?, total_gaji = ? WHERE id_gaji = ?");
 
          // mengeksekusi query dengan isian variabel2 yang sudah menampung value dari method post di atas, ingat penempatan harus urut sesuai query insert di atas
-        $query->execute([$pokok, $lembur, $tunjangan, $bonus, $total, $id]);
+        $query->execute([$pokok, $nama, $lembur, $tunjangan, $bonus, $total, $id]);
             header('Location: index.php'); //jika sukses maka akan kembali ke halaman index
             exit();
         }

@@ -40,6 +40,13 @@ $tampil = $edit->ambilData(); //mengeksekusi method getData() dari ckass edit un
             <input type="number" class="form-control p-1 m-1" name="469_idgaji" id="469_idgaji" value="<?php echo $tampil[0]['id_gaji']?>" required readonly>
           </div>
         </div>
+         <!-- Nama Karyawan -->
+     <div class="my-3 col-md-6">
+      <div class="d-flex flex-column w-75">
+      <label for="469_nama"><h6>Nama Karyawan :</h6></label>
+      <input type="text" class="form-control p-1 m-1" name="469_nama" id="" value="<?php echo $tampil[0]['nama_gaji']?>" required>
+      </div>
+      </div>
         <!-- Gaji Pokok -->
         <div class="my-3 col-md-6">
           <div class="d-flex flex-column w-75">

@@ -86,6 +86,7 @@
         <thead>
             <td class="fw-bold bg-warning p-2">No.</td>
             <td class="fw-bold bg-warning p-2">ID Gaji</td>
+            <td class="fw-bold bg-warning p-2">Nama</td>
             <td class="fw-bold bg-warning p-2">Gaji Pokok</td>
             <td class="fw-bold bg-warning p-2">Lembur</td>
             <td class="fw-bold bg-warning p-2">Tunjangan</td>
@@ -101,6 +102,7 @@ foreach ($data as $data) { //menampilkan setiap value dari $data yang isinya ada
     echo "<tr>";
     echo "<td class='p-2'>" . $nomor . "</td>";
     echo "<td class='p-2'>" . $data['id_gaji'] . "</td>";
+    echo "<td class='p-2'>" . $data['nama_gaji'] . "</td>";
     echo "<td class='p-2'>" . $data['pokok_gaji'] . "</td>";
     echo "<td class='p-2'>" . $data['lembur_gaji'] . "</td>";
     echo "<td class='p-2'>" . $data['tunjangan_gaji'] . "</td>";
